@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>Shici</AssemblyName>
+    <Version>0.1.0</Version>
+    <Authors>walterkken</Authors>
+    <Description>Windows 划词中英互译、单词卡与生词本</Description>
+    <RepositoryUrl>https://github.com/walterkken/shici</RepositoryUrl>
+    <DebugType>none</DebugType>
+    <RootNamespace>Shici</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>../assets/shici.ico</ApplicationIcon>
+    <StartupObject>Shici.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FlaUI.UIA3" Version="4.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../assets/**/*" Link="assets/%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../docs/usage.md" Link="使用说明.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../LICENSE" Link="LICENSE" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../THIRD_PARTY_NOTICES.md" Link="THIRD_PARTY_NOTICES.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../docs/try-selection.html" Link="划词试用.html" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

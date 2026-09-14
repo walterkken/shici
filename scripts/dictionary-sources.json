@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/skywind3000/ECDICT",
+  "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+  "files": {
+    "ecdict.csv": {
+      "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+    },
+    "wordroot.txt": {
+      "sha256": "4b400dc5980e4a362fa12c7a49b326bb621c4e6bebd5f37146fbdcbe9db6bb6e"
+    },
+    "LICENSE": {
+      "sha256": "f8552dd246f61a4e064569eae6194a01c6b3d63b03bf27c6ca863593c549ed0f"
+    }
+  }
+}

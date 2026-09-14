@@ -1,0 +1,40 @@
+name: 问题反馈
+description: 启动、划词、卡片、生词本或复习遇到问题
+title: "[问题] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "谢谢你帮忙改进拾词！我会根据这些信息复现并修正。请勿上传个人词库、查询缓存或账号信息。"
+  - type: input
+    id: version
+    attributes:
+      label: 拾词版本
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Windows 与目标软件
+      placeholder: Windows 11；Edge / Typora / PDF 阅读器及其版本
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请使用少量不敏感的示例文字，说明如何操作。
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: 预期结果与实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 补充信息
+      description: 可选：屏幕缩放、多显示器情况、脱敏截图、快捷键是否可用。

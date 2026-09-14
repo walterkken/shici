@@ -1,0 +1,38 @@
+name: Windows build and offline tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare verified dictionary
+        run: python scripts/prepare_dictionary.py
+      - name: Build
+        shell: pwsh
+        run: ./scripts/build.ps1
+      - name: Offline logic tests
+        shell: pwsh
+        run: |
+          $p = Start-Process ./dist/Shici/Shici.exe -ArgumentList '--self-test' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw 'Offline tests failed' }
+          Get-Content ./dist/Shici/verification.json
+      - name: Upload verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-test-report
+          path: dist/Shici/verification.json
+          if-no-files-found: warn

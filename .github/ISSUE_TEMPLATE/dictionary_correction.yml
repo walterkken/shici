@@ -1,0 +1,28 @@
+name: 词典 / 词形纠错
+description: 反馈释义、原形、词根词缀或归并问题
+title: "[词典] "
+body:
+  - type: input
+    id: word
+    attributes:
+      label: 查询的词或短语
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 当前显示的内容
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 你认为正确的结果
+      description: 有上下文时，请提供一小段不敏感的例句。
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: 参考依据
+      description: 可选：可靠词典或资料链接，方便核对和修正。
